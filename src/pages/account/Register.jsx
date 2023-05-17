@@ -14,6 +14,12 @@ const Register = () => {
                         <form>
                             <div className="form-control">
                                 <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="text" name='name' required placeholder="Name" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="email" name='email' required placeholder="email" className="input input-bordered" />
@@ -23,19 +29,18 @@ const Register = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name='password' required placeholder="password" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <span className="label-text">Photo URL</span>
                                 </label>
+                                <input type="url" name='photo' required placeholder="Photo URL" className="input input-bordered" />
                             </div>
                             <div className="form-control mt-6">
                                 <input type='submit' value='Register' className="btn btn-primary" />
                                 <p className='text-center mt-2'>Already have an ID? <Link to='/login' className='text-blue-500' >Login</Link></p>
                             </div>
                         </form>
-                        <div className="divider">Login using</div>
-
-                        <button className="bth border w-28 mx-auto py-2">Google</button>
-
                     </div>
                 </div>
             </div>
