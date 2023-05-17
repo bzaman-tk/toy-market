@@ -5,7 +5,7 @@ const Footer = () => {
         <footer className="footer p-10 bg-base-200 text-base-content">
             <div className='col-start-1'>
                 <img src={logo} className='w-12' alt="logo" />
-                <p>Despicable Me Toy Ltd.<br />
+                <p><strong className='text-xl'>Despicable Me Toy</strong> Ltd.<br />
                     Providing reliable Toys since 1992</p>
             </div>
             <div className='col-start-2'>
