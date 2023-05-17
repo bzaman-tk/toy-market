@@ -1,14 +1,19 @@
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png'
+import { useContext } from 'react';
+import { AuthContext } from '../../auth/AuthProvider';
 
 const Header = () => {
-
+    const { user, logOut } = useContext(AuthContext)
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='/all-toys'>All Toys</Link></li>
-        <li><Link to='/my-toys'>My Toys</Link></li>
-        <li><Link to='/add-toy'>Add A Toy</Link></li>
+        {user ?
+            <>
+                <li><Link to='/my-toys'>My Toys</Link></li>
+                <li><Link to='/add-toy'>Add A Toy</Link></li>
+            </> : ' '}
     </>;
 
     return (
@@ -33,7 +38,16 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login' className="btn">Login</Link>
+                {user ?
+                    <>
+                        <span className="tooltip tooltip-bottom cursor-pointer" data-tip={user?.displayName}>
+                            <img className='w-8 rounded-full mr-2' src={user?.photoURL} alt="" />
+                        </span>
+                        <button onClick={() => logOut()} className="btn border rounded-lg">Logout</button>
+                    </>
+                    :
+                    <Link to='/login' className="btn">Login</Link>
+                }
             </div>
         </div>
     );

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import login from '../../assets/login.jpg'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../auth/AuthProvider';
@@ -6,6 +6,7 @@ import { AuthContext } from '../../auth/AuthProvider';
 const Login = () => {
     const [error, setError] = useState('')
     const { logIn } = useContext(AuthContext);
+    const navigate = useNavigate()
 
     const handleLogin = e => {
         e.preventDefault()
@@ -26,6 +27,7 @@ const Login = () => {
         logIn(email, password)
             .then(result => {
                 console.log(result.user);
+                navigate('/')
             })
             .catch(e => setError(e.message))
 
