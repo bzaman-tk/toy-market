@@ -1,9 +1,10 @@
+import BannerSlider from "./BannerSlider";
 
 const Home = () => {
     return (
-        <div>
-            Home
-        </div>
+        <>
+            <BannerSlider />
+        </>
     );
 };
 
