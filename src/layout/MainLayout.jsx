@@ -1,9 +1,14 @@
 import React from 'react';
+import Header from '../pages/shared/Header';
+import { Outlet } from 'react-router-dom';
+import Footer from '../pages/shared/Footer';
 
 const MainLayout = () => {
     return (
-        <div>
-            <h1>hi</h1>
+        <div className='container mx-auto'>
+            <Header />
+            <Outlet />
+            <Footer />
         </div>
     );
 };
