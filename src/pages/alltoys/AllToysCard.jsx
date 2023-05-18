@@ -12,7 +12,7 @@ const AllToysCard = ({ data, index }) => {
             <td>{price}</td>
             <td>{quantity}</td>
             <td>
-                <Link to={`/toy/${_id}`} className="btn">View Details button</Link>
+                <Link to={`/toy/${_id}`} className="btn">View Details</Link>
             </td>
         </tr>
     );
