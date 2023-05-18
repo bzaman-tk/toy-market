@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import ShopByCard from './ShopByCard';
 
 const ShopByCategory = () => {
     const [toys, setToys] = useState([])
@@ -18,46 +19,40 @@ const ShopByCategory = () => {
                 setToys(result)
             })
     }, [])
-    console.log(toys);
+    // console.log(toys);
 
     const humanlikeData = <TabPanel>
-        {
-            toys.map((x) =>
-                <span key={x._id}>
-                    {
-                        x.categorys == 'humanlike' ?
-                            <>{x.name} <br /></>
-                            : ' '
-                    }
-                </span>
-            )
-        }
+        <div className="grid grid-cols-3 gap-5 pt-5">
+            {
+                toys.map((x) =>
+                    x.categorys == 'humanlike' ?
+                        <ShopByCard key={x._id} data={x} />
+                        : ' '
+                )
+            }
+        </div>
     </TabPanel>;
     const minionsData = <TabPanel>
-        {
-            toys.map((x) =>
-                <span key={x._id}>
-                    {
-                        x.categorys == 'Minions' ?
-                            <>{x.name} <br /></>
-                            : ' '
-                    }
-                </span>
-            )
-        }
+        <div className="grid grid-cols-3 gap-5 pt-5">
+            {
+                toys.map((x) =>
+                    x.categorys == 'Minions' ?
+                        <ShopByCard key={x._id} data={x} />
+                        : ' '
+                )
+            }
+        </div>
     </TabPanel>;
     const gunsData = <TabPanel>
-        {
-            toys.map((x) =>
-                <span key={x._id}>
-                    {
-                        x.categorys == 'Guns' ?
-                            <>{x.name} <br /></>
-                            : ' '
-                    }
-                </span>
-            )
-        }
+        <div className="grid grid-cols-3 gap-5 pt-5">
+            {
+                toys.map((x) =>
+                    x.categorys == 'Guns' ?
+                        <ShopByCard key={x._id} data={x} />
+                        : ' '
+                )
+            }
+        </div>
     </TabPanel>;
 
     return (
@@ -67,7 +62,7 @@ const ShopByCategory = () => {
                 <p className="mt-3 text-center">Welcome to our enchanting toy shop, where imagination comes alive! </p>
             </div>
             <Tabs>
-                <TabList>
+                <TabList className='react-tabs__tab-list text-center'>
                     <Tab>Humanlike</Tab>
                     <Tab>Minions</Tab>
                     <Tab>Guns</Tab>
