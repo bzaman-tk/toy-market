@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../auth/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddToy = () => {
     const { user } = useContext(AuthContext)
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, reset, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
         fetch('http://localhost:5000/addtoy', {
             method: 'POST',
@@ -15,10 +16,17 @@ const AddToy = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                if (data.insertedId) {
+                    reset()
+                    Swal.fire(
+                        'Toy Added',
+                        'Close and Add New Toy',
+                        'success'
+                    )
+                }
             })
     };
-
+    console.log(errors.name);
     return (
         <div className='text-center w-1/2 mx-auto'>
             <h2 className='text-2xl my-10'>Add New Toy</h2>
@@ -34,9 +42,10 @@ const AddToy = () => {
 
                     <select {...register("categorys")} className='border'>
                         <option >Category</option>
-                        <option value="human">Human</option>
-                        <option value="minions">Minions</option>
-                        <option value="other">other</option>
+                        <option value="humanlike">Human</option>
+                        <option value="Minions">Minions</option>
+                        <option value="Guns">Guns</option>
+                        <option value="vehicle">Vehicle</option>
                     </select>
                     <input className='py-2 px-4 text-xl border' placeholder='Price' type="number" {...register("price", { required: true })} />
                     <input className='py-2 px-4 text-xl border' placeholder='Ratting' type="number" {...register("ratting", { required: true })} />
@@ -45,6 +54,8 @@ const AddToy = () => {
                 </div>
                 <input className='py-2 px-4 text-xl border w-full mt-5' placeholder='Details' type="text" {...register("details", { required: true })} />
                 <input className='btn  mt-7' type="submit" value='Add Toy' />
+
+                {(errors.name || errors.email || errors.details || errors.quantity || errors.ratting || errors.price || errors.categorys || errors.seller || errors.photo) && <p className='text-red-500 mt-5'>This field is required</p>}
             </form>
         </div>
     );
