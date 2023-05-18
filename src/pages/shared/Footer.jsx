@@ -2,7 +2,7 @@ import logo from '../../assets/logo.png'
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-base-200 text-base-content">
+        <footer className="footer mt-20 p-10 bg-base-200 text-base-content">
             <div className='col-start-1'>
                 <img src={logo} className='w-12' alt="logo" />
                 <p><strong className='text-xl'>Despicable Me Toy</strong> Ltd.<br />
