@@ -7,6 +7,8 @@ const MyToys = () => {
     const { user } = useContext(AuthContext)
     const [toys, setToys] = useState(null)
     const [reload, setReload] = useState(false)
+    const [show, setShow] = useState(null)
+
     useEffect(() => {
         fetch(`http://localhost:5000/my-toys?email=${user?.email}`)
             .then(res => res.json())
@@ -46,6 +48,11 @@ const MyToys = () => {
 
     }
 
+    const handleUpdate = i => {
+        setShow(i)
+    }
+    // console.log(show);
+
     return (
         <div>
             <div className="overflow-x-auto mt-10">
@@ -69,7 +76,15 @@ const MyToys = () => {
                     <tbody>
                         {
                             toys && toys.map((data, i) =>
-                                <MyToysCard index={i} handleDelete={handleDelete} data={data} key={data._id} />
+                                <MyToysCard
+                                    index={i}
+                                    handleDelete={handleDelete}
+                                    handleUpdate={handleUpdate}
+                                    show={show}
+                                    setShow={setShow}
+                                    data={data}
+                                    setReload={setReload}
+                                    key={data._id} />
                             )
                         }
                     </tbody>
