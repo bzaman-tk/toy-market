@@ -17,7 +17,7 @@ const Header = () => {
     </>;
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 mt-5">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -40,8 +40,10 @@ const Header = () => {
             <div className="navbar-end">
                 {user ?
                     <>
-                        <span className="tooltip tooltip-bottom cursor-pointer" data-tip={user?.displayName}>
-                            <img className='w-8 rounded-full mr-2' src={user?.photoURL} alt="" />
+                        <span
+                            className="tooltip tooltip-bottom cursor-pointer h-12 w-12   rounded-full border mr-2 p-1 border-orange-500"
+                            data-tip={user?.displayName}>
+                            <img className='w-full rounded-full' src={user?.photoURL} alt="" />
                         </span>
                         <button onClick={() => logOut()} className="btn border rounded-lg">Logout</button>
                     </>

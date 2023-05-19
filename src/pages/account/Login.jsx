@@ -5,7 +5,7 @@ import { AuthContext } from '../../auth/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('')
-    const { logIn } = useContext(AuthContext);
+    const { user, logIn, googleLogIn } = useContext(AuthContext);
     const navigate = useNavigate()
 
     const handleLogin = e => {
@@ -34,6 +34,14 @@ const Login = () => {
         // console.log(email, password);
     }
 
+    const handleGoogle = () => {
+        setError('')
+        googleLogIn()
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(e => setError(e.message))
+    }
     return (
         <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:flex-row">
@@ -64,7 +72,7 @@ const Login = () => {
                         </form>
                         <div className="divider">Login using</div>
 
-                        <button className="bth border w-28 mx-auto py-2">Google</button>
+                        <button onClick={handleGoogle} className="bth border w-28 mx-auto py-2">Google</button>
 
                     </div>
                 </div>
