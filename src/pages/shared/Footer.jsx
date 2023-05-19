@@ -7,6 +7,9 @@ const Footer = () => {
                 <img src={logo} className='w-12' alt="logo" />
                 <p><strong className='text-xl'>Despicable Me Toy</strong> Ltd.<br />
                     Providing reliable Toys since 1992</p>
+                <p><strong>Email:</strong> example@email.com</p>
+                <p><strong>Phone:</strong> 012 345 6789</p>
+                <p><strong>Address:</strong> Dhaka, Bangladesh</p>
             </div>
             <div className='col-start-2'>
                 <span className="footer-title">Company</span>
