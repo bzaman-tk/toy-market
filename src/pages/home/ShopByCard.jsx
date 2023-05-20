@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../auth/AuthProvider';
 import Swal from 'sweetalert2'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ShopByCard = ({ data }) => {
     const { user } = useContext(AuthContext)
@@ -47,7 +47,7 @@ const ShopByCard = ({ data }) => {
                 <div className="card-actions justify-end">
                     {
                         user ?
-                            <button className="btn btn-primary">View Details</button>
+                            <Link to={`/toy/${_id}`} className="btn btn-primary">View Details</Link>
                             :
                             <button onClick={handleView} className="btn btn-primary">View Details</button>
                     }
