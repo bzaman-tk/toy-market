@@ -5,11 +5,11 @@ const SingleToy = () => {
     const loadedData = useLoaderData()
     const location = useLocation()
     const { _id, seller, ratting, price, photo, name, email, details, categorys } = loadedData[0]
-    console.log(location);
+    // console.log(location);
     return (
-        <div className="hero h-[550px] bg-base-200 mt-10">
+        <div className="hero bg-base-200 mt-10">
             <div className="hero-content flex-col lg:flex-row gap-20">
-                <img src={photo} className="max-w-sm rounded-lg shadow-2xl" />
+                <img src={photo} className="max-w-sm max-h-full rounded-lg shadow-2xl" />
                 <div className='w-1/2'>
                     <h1 className="text-5xl font-bold">{name}</h1>
                     <p className="py-2 mt-10"><strong>Seller Email:</strong> {email}</p>

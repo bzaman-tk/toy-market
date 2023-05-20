@@ -1,15 +1,16 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../auth/AuthProvider';
 import Swal from 'sweetalert2'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const ShopByCard = ({ data }) => {
     const { user } = useContext(AuthContext)
     const { _id, photo, name, ratting, price } = data;
     const navigate = useNavigate()
+    const location = useLocation()
     // console.log(data);
 
-    const handleView = () => {
+    const handleView = id => {
         let timerInterval
         Swal.fire({
             title: 'You Have To Login First',
@@ -29,8 +30,9 @@ const ShopByCard = ({ data }) => {
         }).then((result) => {
             /* Read more about handling dismissals below */
             if (result.dismiss === Swal.DismissReason.timer) {
-                console.log('I was closed by the timer')
-                navigate('/login')
+                // console.log('I was closed by the timer')
+                // navigate('/login')
+                navigate(`/toy/${id}`)
             }
         })
     }
@@ -49,7 +51,7 @@ const ShopByCard = ({ data }) => {
                         user ?
                             <Link to={`/toy/${_id}`} className="btn btn-primary">View Details</Link>
                             :
-                            <button onClick={handleView} className="btn btn-primary">View Details</button>
+                            <button onClick={() => handleView(_id)} className="btn btn-primary">View Details</button>
                     }
                 </div>
             </div>

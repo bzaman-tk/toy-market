@@ -9,7 +9,7 @@ const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const from = location?.state?.from?.pathname || '/'
-    console.log(from);
+    // console.log(location);
 
     const handleLogin = e => {
         e.preventDefault()
@@ -29,7 +29,7 @@ const Login = () => {
 
         logIn(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 navigate(from)
             })
             .catch(e => setError(e.message))
