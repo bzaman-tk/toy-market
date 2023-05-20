@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import BannerSlider from "./BannerSlider";
-import HomeGalary from "./HomeGalary";
 import OurStory from "./OurStory";
 import ShopByCategory from "./ShopByCategory";
 import Testimonials from "./Testimonials";
+import HomeGalary from "./HomeGalary";
 
 const Home = () => {
     useEffect(() => {
