@@ -1,25 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-AOS.init({
-    // offset: 220,
-    // delay: 500,
-    // duration: 1000,
-    // once: false,
-});
-
 const OurStory = () => {
+
+    useEffect(() => {
+        AOS.init({ duration: 2000, delay: 1000 });
+        setTimeout(function () { AOS.refresh(); }, 1000);
+    }, [])
+
     return (
         <div className='mt-20'>
-            <h2 data-aos="fade-down-left" data-aos-duration="3000" className="text-3xl text-center font-bold">
+            <h2 data-aos="zoom-in"
+                className="text-3xl text-center font-bold">
                 <span className="block text-orange-500 text-2xl font-normal">OUR STORY</span>
                 From Our Blog
             </h2>
-            <div data-aos="fade-right"
-                data-aos-offset="300"
-                data-aos-delay="300"
-                data-aos-easing="ease-in-sine"
+            <div data-aos="zoom-in-up"
                 className="sm:flex justify-center gap-12 mt-12">
                 <div className="card mb-5 sm:mb-0 rounded-none  sm:w-1/4 bg-base-100 shadow-xl border border-gray-900">
                     <figure>
