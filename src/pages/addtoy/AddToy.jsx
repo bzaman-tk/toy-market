@@ -7,6 +7,10 @@ const AddToy = () => {
     const { user } = useContext(AuthContext)
     const { register, reset, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
+        data.price = parseFloat(data.price)
+        data.quantity = parseInt(data.quantity)
+        //console.log(data);
+        //return;
         fetch('https://toyserver-one.vercel.app/addtoy', {
             method: 'POST',
             headers: {

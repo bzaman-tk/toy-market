@@ -8,6 +8,11 @@ const UpdateToyModal = ({ index, show, setShow, data, setReload }) => {
     const { _id, quantity, price, details } = data;
 
     const onSubmit = data => {
+        data.price = parseFloat(data.price)
+        data.quantity = parseInt(data.quantity)
+        // console.log(data);
+        // return;
+
         fetch(`https://toyserver-one.vercel.app/update/${_id}`, {
             method: 'PATCH',
             headers: {

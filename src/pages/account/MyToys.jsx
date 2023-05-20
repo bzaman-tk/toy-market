@@ -8,9 +8,11 @@ const MyToys = () => {
     const [toys, setToys] = useState(null)
     const [reload, setReload] = useState(false)
     const [show, setShow] = useState(null)
+    const [sort, setSort] = useState(null)
+
 
     useEffect(() => {
-        fetch(`https://toyserver-one.vercel.app/my-toys?email=${user?.email}`)
+        fetch(`https://toyserver-one.vercel.app/my-toys?email=${user?.email}&sort=${sort}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [user, reload])
@@ -53,9 +55,23 @@ const MyToys = () => {
     }
     // console.log(show);
 
+    const handleMin = () => {
+        console.log('object');
+    }
+    const handleMax = () => {
+        console.log('object');
+    }
+
     return (
         <div>
             <div className="overflow-x-auto mt-10">
+                <div className="mx-auto w-96 px-12 py-5 mb-5 flex gap-3">
+                    Sort by Price:
+                    <div className="flex gap-3">
+                        <button onClick={handleMin} className="btn btn-xs">min-max</button>
+                        <button onClick={handleMax} className="btn btn-xs">max-min</button>
+                    </div>
+                </div>
                 <table className="table table-zebra w-full max-w-full">
                     {/* head */}
                     <thead>
