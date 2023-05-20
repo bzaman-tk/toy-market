@@ -22,7 +22,7 @@ const ShopByCategory = () => {
     // console.log(toys);
 
     const humanlikeData = <TabPanel>
-        <div className="grid grid-cols-3 gap-5 pt-5">
+        <div className="sm:grid sm:grid-cols-3 gap-5 pt-5">
             {
                 toys.map((x) =>
                     x.categorys == 'humanlike' ?
@@ -33,7 +33,7 @@ const ShopByCategory = () => {
         </div>
     </TabPanel>;
     const minionsData = <TabPanel>
-        <div className="grid grid-cols-3 gap-5 pt-5">
+        <div className="sm:grid sm:grid-cols-3 gap-5 pt-5">
             {
                 toys.map((x) =>
                     x.categorys == 'Minions' ?
@@ -44,7 +44,7 @@ const ShopByCategory = () => {
         </div>
     </TabPanel>;
     const gunsData = <TabPanel>
-        <div className="grid grid-cols-3 gap-5 pt-5">
+        <div className="sm:grid sm:grid-cols-3 gap-5 pt-5">
             {
                 toys.map((x) =>
                     x.categorys == 'Guns' ?
@@ -57,7 +57,7 @@ const ShopByCategory = () => {
 
     return (
         <div className='mt-20'>
-            <div className="mb-12 text-center w-1/3 mx-auto mt-20">
+            <div className="mb-12 text-center sm:w-1/3 mx-auto sm:mt-20">
                 <h2 className="text-3xl font-extrabold">Shop By Category</h2>
                 <p className="mt-3 text-center">Welcome to our enchanting toy shop, where imagination comes alive! </p>
             </div>

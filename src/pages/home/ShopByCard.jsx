@@ -38,7 +38,7 @@ const ShopByCard = ({ data }) => {
     }
 
     return (
-        <div className="card w-96 bg-gray-900 shadow-xl">
+        <div className="card mb-5 sm:mb-0 sm:w-96 bg-gray-900 shadow-xl">
             <figure>
                 <img className='h-72 w-full' src={photo} alt="" />
             </figure>

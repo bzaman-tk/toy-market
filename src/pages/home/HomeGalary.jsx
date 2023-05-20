@@ -32,7 +32,7 @@ const HomeGalary = () => {
 
     return (
         <>
-            <div className="mb-12 text-center w-1/3 mx-auto mt-20">
+            <div className="mb-12 text-center sm:w-1/3 mx-auto mt-10 sm:mt-20">
                 <h2 className="text-3xl font-extrabold">Product Image Gallary</h2>
                 <p className="mt-3 text-center">Welcome to our enchanting toy shop, where imagination comes alive! </p>
             </div>

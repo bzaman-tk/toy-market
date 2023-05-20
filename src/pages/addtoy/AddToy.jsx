@@ -26,7 +26,7 @@ const AddToy = () => {
                 }
             })
     };
-    console.log(errors.name);
+    // console.log(errors.name);
     return (
         <div className='text-center w-1/2 mx-auto'>
             <h2 className='text-2xl my-10'>Add New Toy</h2>
