@@ -1,10 +1,11 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useLocation } from 'react-router-dom';
 
 const SingleToy = () => {
     const loadedData = useLoaderData()
+    const location = useLocation()
     const { _id, seller, ratting, price, photo, name, email, details, categorys } = loadedData[0]
-    console.log(loadedData[0].photo);
+    console.log(location);
     return (
         <div className="hero h-[550px] bg-base-200 mt-10">
             <div className="hero-content flex-col lg:flex-row gap-20">
