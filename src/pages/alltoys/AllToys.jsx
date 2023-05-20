@@ -4,8 +4,9 @@ import AllToysCard from './AllToysCard';
 
 const AllToys = () => {
     const lodedData = useLoaderData()
-    const [toys, setToys] = useState(lodedData)
-    // console.log(lodedData);
+    const [toys, setToys] = useState(lodedData?.toys)
+    const [count, setCount] = useState(lodedData?.count)
+    // console.log(lodedData.count);
     const handleSearch = e => {
         e.preventDefault()
         const form = e.target;
@@ -15,6 +16,7 @@ const AllToys = () => {
             .then(res => res.json())
             .then(data => {
                 setToys(data);
+                setCount(data.length);
             })
     }
     return (
@@ -35,7 +37,7 @@ const AllToys = () => {
                             <th>Toy Name</th>
                             <th>Category</th>
                             <th>Price</th>
-                            <th>Available Quantity</th>
+                            <th>Quantity</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -47,6 +49,11 @@ const AllToys = () => {
                         }
                     </tbody>
                 </table>
+                <div className="mt-12 flex justify-center items-center gap-5">
+                    <button className="btn">Prev</button>
+                    <p className="text-white text-xl text-center">Showing {toys.length} of {count} Toys</p>
+                    <button className="btn">Next</button>
+                </div>
             </div>
         </div>
     );
