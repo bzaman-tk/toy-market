@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../auth/AuthProvider';
 import Swal from 'sweetalert2';
@@ -6,6 +6,11 @@ import Swal from 'sweetalert2';
 const AddToy = () => {
     const { user } = useContext(AuthContext)
     const { register, reset, handleSubmit, watch, formState: { errors } } = useForm();
+
+    useEffect(() => {
+        document.title = 'Despicable Me Toy | Add Toy'
+    }, [])
+
     const onSubmit = data => {
         data.price = parseFloat(data.price)
         data.quantity = parseInt(data.quantity)

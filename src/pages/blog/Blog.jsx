@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Blog = () => {
+
+    useEffect(() => {
+        document.title = 'Despicable Me Toy | Blog'
+    }, [])
+
     return (
         <div className='w-1/2 mx-auto my-5 py-5 px-10 text-xl '>
             <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">

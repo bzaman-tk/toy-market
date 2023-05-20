@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLoaderData, useLocation } from 'react-router-dom';
 
 const SingleToy = () => {
     const loadedData = useLoaderData()
     const location = useLocation()
     const { _id, seller, ratting, price, photo, name, email, details, categorys } = loadedData[0]
+
+    useEffect(() => {
+        document.title = `Despicable Me Toy | ${name && name}`
+    }, [])
+
     // console.log(location);
     return (
         <div className="hero bg-base-200 mt-10">

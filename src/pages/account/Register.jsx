@@ -1,13 +1,17 @@
 import { Link, useNavigate } from 'react-router-dom';
 import login from '../../assets/login.jpg'
 import { AuthContext } from '../../auth/AuthProvider';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const [error, setError] = useState('')
     const { singUp, logOut } = useContext(AuthContext)
     const navigate = useNavigate()
+
+    useEffect(() => {
+        document.title = 'Despicable Me Toy | Register'
+    }, [])
 
     const handleRegister = e => {
         e.preventDefault()

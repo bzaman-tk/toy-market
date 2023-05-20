@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import AllToysCard from './AllToysCard';
 
@@ -7,6 +7,9 @@ const AllToys = () => {
     const [toys, setToys] = useState(lodedData?.toys)
     const [count, setCount] = useState(lodedData?.count)
     // console.log(lodedData.count);
+    useEffect(() => {
+        document.title = 'Despicable Me Toy | All Toys'
+    }, [])
     const handleSearch = e => {
         e.preventDefault()
         const form = e.target;

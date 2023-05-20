@@ -13,6 +13,7 @@ const MyToys = () => {
 
 
     useEffect(() => {
+        document.title = 'Despicable Me Toy | My Toys'
         setLoading(true)
         fetch(`https://toyserver-one.vercel.app/my-toys?email=${user?.email}`)
             .then(res => res.json())
