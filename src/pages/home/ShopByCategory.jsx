@@ -63,13 +63,13 @@ const ShopByCategory = () => {
             </div>
             <Tabs>
                 <TabList className='react-tabs__tab-list text-center'>
+                    <Tab>Guns</Tab>
                     <Tab>Humanlike</Tab>
                     <Tab>Minions</Tab>
-                    <Tab>Guns</Tab>
                 </TabList>
+                {gunsData}
                 {humanlikeData}
                 {minionsData}
-                {gunsData}
             </Tabs>
         </div>
     );
