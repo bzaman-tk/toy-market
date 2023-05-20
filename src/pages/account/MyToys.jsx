@@ -56,21 +56,21 @@ const MyToys = () => {
     return (
         <div>
             <div className="overflow-x-auto mt-10">
-                <table className="table table-zebra w-full">
+                <table className="table table-zebra w-full max-w-full">
                     {/* head */}
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Photo</th>
-                            <th>Toy Name</th>
-                            <th>Seller</th>
-                            <th>Email</th>
-                            <th>Category</th>
-                            <th>Price</th>
-                            <th>Rating</th>
-                            <th>Quantity</th>
-                            <th>Details</th>
-                            <th>Action</th>
+                            <th className='whitespace-pre-wrap'>#</th>
+                            <th className='whitespace-pre-wrap'>Photo</th>
+                            <th className='whitespace-pre-wrap'>Toy Name</th>
+                            <th className='whitespace-pre-wrap'>Seller</th>
+                            <th className='whitespace-pre-wrap'>Email</th>
+                            <th className='whitespace-pre-wrap'>Category</th>
+                            <th className='whitespace-pre-wrap'>Price</th>
+                            <th className='whitespace-pre-wrap'>Rating</th>
+                            <th className='whitespace-pre-wrap'>Quantity</th>
+                            <th className='whitespace-pre-wrap'>Details</th>
+                            <th className='whitespace-pre-wrap'>Action</th>
                         </tr>
                     </thead>
                     <tbody>

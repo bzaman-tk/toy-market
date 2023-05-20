@@ -32,7 +32,7 @@ const AddToy = () => {
             <h2 className='text-2xl my-10'>Add New Toy</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className='grid grid-cols-2 gap-3'>
-                    <input className='py-2 px-4 text-xl border' placeholder="Name" {...register("name", { required: true })} />
+                    <input className='py-2 px-4 text-xl border' placeholder="Toy Name" {...register("name", { required: true })} />
 
                     <input className='py-2 px-4 text-xl border' placeholder='photo URL' type="url" {...register("photo", { required: true })} />
 

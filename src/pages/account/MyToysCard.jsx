@@ -7,23 +7,25 @@ const MyToysCard = ({ data, index, handleDelete, handleUpdate, show, setShow, se
 
     return (
         <tr>
-            <th>{index + 1}</th>
-            <td><img src={photo} className='w-20' alt="" /></td>
-            <td>{name}</td>
-            <td>{seller}</td>
-            <td>{email}</td>
-            <td>{categorys}</td>
-            <td>{price}</td>
-            <td>{ratting}</td>
-            <td>{quantity}</td>
-            <td>{details}</td>
-            <td>
+            <td>{index + 1}</td>
+            <td className='whitespace-pre-wrap'><img src={photo} className='w-20' alt="" /></td>
+            <td className='whitespace-pre-wrap'> {name.slice(0, 100)} </td>
+            <td className='whitespace-pre-wrap'>{seller}</td>
+            <td className='whitespace-pre-wrap'>{email}</td>
+            <td className='whitespace-pre-wrap'>{categorys}</td>
+            <td className='whitespace-pre-wrap'>{price}</td>
+            <td className='whitespace-pre-wrap'>{ratting}</td>
+            <td className='whitespace-pre-wrap'>{quantity}</td>
+            <td className='whitespace-pre-wrap'>
+                {details.slice(0, 100)}
+            </td>
+            <td className='whitespace-pre-wrap'>
                 {/* <label htmlFor={`my-modal-${index}`} className="btn mr-2">
                     Update
                 </label> */}
-                <button onClick={() => handleUpdate(index)} className="btn mr-2">Update</button>
+                <button onClick={() => handleUpdate(index)} className="btn mr-2 w-full">Update</button>
 
-                <button onClick={() => handleDelete(_id)} className="btn text-red-500">X</button>
+                <button onClick={() => handleDelete(_id)} className="btn text-red-500 w-full mt-3">X</button>
 
                 <UpdateToyModal
                     data={data}
