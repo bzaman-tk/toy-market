@@ -8,7 +8,7 @@ const UpdateToyModal = ({ index, show, setShow, data, setReload }) => {
     const { _id, quantity, price, details } = data;
 
     const onSubmit = data => {
-        fetch(`http://localhost:5000/update/${_id}`, {
+        fetch(`https://toyserver-one.vercel.app/update/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

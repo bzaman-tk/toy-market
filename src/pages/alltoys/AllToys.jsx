@@ -12,7 +12,7 @@ const AllToys = () => {
         const form = e.target;
         const searchText = form.search.value;
         // console.log(searchText);
-        fetch(`http://localhost:5000/search/${searchText}`)
+        fetch(`https://toyserver-one.vercel.app/search/${searchText}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data);
