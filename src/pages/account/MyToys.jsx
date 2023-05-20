@@ -9,13 +9,25 @@ const MyToys = () => {
     const [reload, setReload] = useState(false)
     const [show, setShow] = useState(null)
     const [sort, setSort] = useState(null)
+    const [loading, setLoading] = useState(false)
 
 
     useEffect(() => {
-        fetch(`https://toyserver-one.vercel.app/my-toys?email=${user?.email}&sort=${sort}`)
+        setLoading(true)
+        fetch(`https://toyserver-one.vercel.app/my-toys?email=${user?.email}`)
             .then(res => res.json())
-            .then(data => setToys(data))
-    }, [user, reload])
+            .then(data => {
+                if (sort === 'max') {
+                    data.sort((a, b) => b.price - a.price);
+                }
+                if (sort === 'min') {
+                    data.sort((a, b) => a.price - b.price);
+                }
+                setToys(data)
+                setLoading(false)
+            })
+
+    }, [user, reload, sort])
 
     const handleDelete = id => {
         // console.log(id);
@@ -56,10 +68,14 @@ const MyToys = () => {
     // console.log(show);
 
     const handleMin = () => {
-        console.log('object');
+        setSort('min')
     }
     const handleMax = () => {
-        console.log('object');
+        setSort('max')
+    }
+
+    if (loading) {
+        return <div className="flex h-48 justify-center items-center"><button className="btn loading">loading</button></div>
     }
 
     return (
