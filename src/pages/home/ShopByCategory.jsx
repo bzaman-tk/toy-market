@@ -56,7 +56,7 @@ const ShopByCategory = () => {
     </TabPanel>;
 
     return (
-        <div className='mt-20'>
+        <div className='mt-10 sm:mt-0'>
             <div className="mb-12 text-center sm:w-1/3 mx-auto sm:mt-20">
                 <h2 className="text-3xl font-extrabold">Shop By Category</h2>
                 <p className="mt-3 text-center">Welcome to our enchanting toy shop, where imagination comes alive! </p>

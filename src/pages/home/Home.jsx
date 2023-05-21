@@ -4,6 +4,7 @@ import OurStory from "./OurStory";
 import ShopByCategory from "./ShopByCategory";
 import Testimonials from "./Testimonials";
 import HomeGalary from "./HomeGalary";
+import HomeCarosule from "./HomeCarosule";
 
 const Home = () => {
     useEffect(() => {
@@ -13,7 +14,8 @@ const Home = () => {
         <>
             <BannerSlider />
             <HomeGalary />
-            <Testimonials />
+            {/* <Testimonials /> */}
+            <HomeCarosule />
             <ShopByCategory />
             <OurStory />
         </>
